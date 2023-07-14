@@ -7,7 +7,13 @@ db()
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+        credentials: true,
+        // origin: "http://localhost:5000/user",
+        origin: "https://odd-ruby-sea-urchin-cape.cyclic.app/user"
+}
+))
+
 app.use("/user", require("./routes/userRoutes"))
 
 app.listen(PORT, 
